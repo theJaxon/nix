@@ -16,13 +16,18 @@
       environment.systemPackages =
         [ 
           pkgs.aerospace
+          pkgs.alacritty
           pkgs.eza
           pkgs.utm
           pkgs.qemu
           pkgs.vim
           pkgs.zed-editor
         ];
-      
+
+      fonts.packages = with pkgs; [
+        nerd-fonts.jetbrains-mono
+      ];
+
       programs.zsh.enable = true;
 
       # Necessary for using flakes on this system.
