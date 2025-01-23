@@ -13,11 +13,17 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       nixpkgs.config.allowUnfree = true;
+      environment.shellAliases = {
+        ls = "eza";
+        la = "eza --all";
+        ll = "eza -ll --icons";
+    };
       environment.systemPackages =
-        [ 
+        [
           pkgs.aerospace
           pkgs.alacritty
           pkgs.eza
+          pkgs.jankyborders
           pkgs.utm
           pkgs.qemu
           pkgs.vim
@@ -40,13 +46,17 @@
       # $ darwin-rebuild changelog
       system.stateVersion = 5;
 
-      # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
       security.pam.enableSudoTouchIdAuth = true;
+
+      system.defaults = {
+        dock.autohide = true;
+        dock.mru-spaces = false;
+        finder.AppleShowAllExtensions = true;
+      };
     };
   in
   {
-    # Build darwin flake using:
     # $ darwin-rebuild build --flake .#mac
     darwinConfigurations."mac" = nix-darwin.lib.darwinSystem {
       modules = [ configuration ];
