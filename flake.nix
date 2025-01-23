@@ -23,7 +23,9 @@
           pkgs.aerospace
           pkgs.alacritty
           pkgs.eza
+          pkgs.helix
           pkgs.jankyborders
+          pkgs.nushell
           pkgs.utm
           pkgs.qemu
           pkgs.vim
