@@ -29,6 +29,7 @@
           pkgs.utm
           pkgs.qemu
           pkgs.vim
+          pkgs.wireshark
           pkgs.zed-editor
         ];
 
