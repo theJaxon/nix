@@ -1,4 +1,7 @@
 # nix
+![Nix](https://img.shields.io/badge/nix-text?style=for-the-badge&logo=nixos&label=built%20with)
+
+Using nix to make package management reliable and reproducible.
 
 ```bash
 # https://github.com/LnL7/nix-darwin?tab=readme-ov-file#step-1-creating-flakenix
