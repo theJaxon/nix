@@ -13,6 +13,7 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       nixpkgs.config.allowUnfree = true;
+      environment.shells = [ pkgs.nushell ];
       environment.shellAliases = {
         ls = "eza";
         la = "eza --all";
@@ -25,7 +26,9 @@
           pkgs.eza
           pkgs.helix
           pkgs.jankyborders
+          pkgs.kubernetes-helm
           pkgs.nushell
+          pkgs.rar
           pkgs.utm
           pkgs.qemu
           pkgs.vim
