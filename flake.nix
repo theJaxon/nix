@@ -24,15 +24,16 @@
           pkgs.aerospace
           pkgs.alacritty
           pkgs.eza
+          pkgs.fluxcd
+          pkgs.hugo
           pkgs.helix
           pkgs.jankyborders
           pkgs.kubernetes-helm
           pkgs.nushell
           pkgs.rar
-          pkgs.utm
-          pkgs.qemu
           pkgs.vim
           pkgs.wireshark
+          pkgs.yq-go
           pkgs.zed-editor
         ];
 
