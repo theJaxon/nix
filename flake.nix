@@ -22,6 +22,7 @@
       environment.systemPackages =
         [
           pkgs.aerospace
+          pkgs.ansible
           pkgs.alacritty
           pkgs.eza
           pkgs.fluxcd
@@ -30,7 +31,9 @@
           pkgs.jankyborders
           pkgs.kubernetes-helm
           pkgs.nushell
+          pkgs.packer
           pkgs.rar
+          pkgs.terraform
           pkgs.vim
           pkgs.wireshark
           pkgs.yq-go
