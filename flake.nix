@@ -9,44 +9,37 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs }:
   let
-    configuration = { pkgs, ... }: {
-      # List packages installed in system profile. To search by name, run:
-      # $ nix-env -qaP | grep wget
-      nixpkgs.config.allowUnfree = true;
-      environment.shells = [ pkgs.nushell ];
-      environment.shellAliases = {
-        ls = "eza";
-        la = "eza --all";
-        ll = "eza -ll --icons";
-    };
-      environment.systemPackages =
-        [
-          pkgs.aerospace
-          pkgs.ansible
-          pkgs.alacritty
-          pkgs.eza
-          pkgs.fluxcd
-          pkgs.hugo
-          pkgs.helix
-          pkgs.jankyborders
-          pkgs.kubernetes-helm
-          pkgs.nushell
-          pkgs.packer
-          pkgs.rar
-          pkgs.terraform
-          pkgs.vim
-          pkgs.wireshark
-          pkgs.yq-go
-          pkgs.zed-editor
-        ];
-
-      fonts.packages = with pkgs; [
-        nerd-fonts.jetbrains-mono
+      configuration = { pkgs, ... }: {
+        nixpkgs.config.allowUnfree = true;
+        environment.shells = [ pkgs.nushell ];
+        environment.shellAliases = {
+          ls = "eza";
+          la = "eza --all";
+          ll = "eza -ll --icons";
+      };
+      environment.systemPackages = with pkgs; [
+        aerospace
+        ansible
+        alacritty
+        eza
+        fluxcd
+        hugo
+        helix
+        jankyborders
+        kubernetes-helm
+        nushell
+        packer
+        qemu
+        rar
+        terraform
+        vim
+        wireshark
+        yq-go
+        zed-editor
       ];
 
+      fonts.packages = with pkgs; [nerd-fonts.jetbrains-mono];
       programs.zsh.enable = true;
-
-      # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
 
       # Set Git commit hash for darwin-version.
