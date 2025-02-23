@@ -23,10 +23,13 @@
         alacritty
         eza
         fluxcd
+        go
         hugo
         helix
         jankyborders
         kubernetes-helm
+        logseq
+        nixfmt-rfc-style
         nushell
         packer
         qemu
