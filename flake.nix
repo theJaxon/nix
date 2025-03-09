@@ -21,6 +21,7 @@
         aerospace
         ansible
         alacritty
+        awscli2
         eza
         fluxcd
         go
@@ -30,6 +31,7 @@
         kubernetes-helm
         logseq
         nixfmt-rfc-style
+        nodePackages.aws-cdk
         nushell
         packer
         qemu
