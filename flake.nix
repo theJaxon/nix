@@ -9,20 +9,14 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs }:
   let
-      configuration = { pkgs, ... }: {
-        nixpkgs.config.allowUnfree = true;
-        environment.shells = [ pkgs.nushell ];
-        environment.shellAliases = {
-          ls = "eza";
-          la = "eza --all";
-          ll = "eza -ll --icons";
-      };
+    configuration = { pkgs, ... }: {
+      nixpkgs.config.allowUnfree = true;
+      environment.shells = [ pkgs.zsh ];
       environment.systemPackages = with pkgs; [
         aerospace
         ansible
         alacritty
         awscli2
-        eza
         fluxcd
         go
         hugo
@@ -38,9 +32,8 @@
         rar
         terraform
         vim
-        wireshark
+        vscode
         yq-go
-        zed-editor
       ];
 
       fonts.packages = with pkgs; [nerd-fonts.jetbrains-mono];
