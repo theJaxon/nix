@@ -2,6 +2,7 @@
 let 
   font-family = "JetBrainsMono Nerd Font";
   font-size   = 15;
+  tab-size    = 2;
 in
 {
   home.stateVersion = "24.11";
@@ -21,7 +22,7 @@ in
           "editor.fontLigatures" = true;
           "editor.fontSize" = font-size;
           "editor.fontFamily" = "${font-family}";
-          "editor.tabSize" = 2;
+          "editor.tabSize" = tab-size;
           "terminal.integrated.fontFamily" = "${font-family}";
           "workbench.colorTheme" = "Nord";
           "workbench.iconTheme" = "catppuccin.catppuccin-vsc-icons";
@@ -39,7 +40,7 @@ in
       package = pkgs.alacritty;
       settings = {
         font = {
-				  normal = {
+          normal = {
 					  family = "${font-family}";
 					  style = "Regular";
 				  };
@@ -53,7 +54,27 @@ in
 				  };
           size = font-size;
         };
+        colors = {
+          draw_bold_text_with_bright_colors = false;
+          primary.background = "#15141b";
+          primary.foreground = "#edecee";
+          cursor.cursor = "#00D1FF";
+        };
+        keyboard.bindings = [
+          {
+            action = "SpawnNewInstance";
+            key = "N";
+            mods = "Command";
+          }
+          {
+            chars = "\u001BB";
+            key = "Left";
+            mods = "Command";
+          }
+        ];
+        cursor.style.shape = "Beam";
         selection.save_to_clipboard = true;
+        terminal.shell.program = "/run/current-system/sw/bin/zellij";
       };
     };
 
@@ -78,14 +99,24 @@ in
       };
     };
 
+    zellij = {
+      enable = true;
+      settings = {
+        show_startup_tips = false;
+      };
+    };
+
     # starship - a customizable prompt for any shell
     starship = {
       enable = true;
       settings = {
-        add_newline = false;
+        # # Insert a blank line between shell prompts
+        add_newline = true;
         enableZshIntegration = true;
         aws.disabled = true;
         gcloud.disabled = true;
+        golang.symbol = "go ";
+        # Disable the line break between the first and second prompt lines
         line_break.disabled = true;
       };
     };
