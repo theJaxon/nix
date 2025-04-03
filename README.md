@@ -18,4 +18,7 @@ darwin-rebuild switch --flake ~/nix#mac
 ### References
 1. [Common Nix Patterns - devenv docs](https://devenv.sh/common-patterns/#escape-nix-curly-braces-inside-shell-scripts)
 2. [nix on MacOS](https://nixcademy.com/de/posts/nix-on-macos/)
-3. [Alacritty config file](https://geekbb.xlog.page/Alacritty)
+
+#### Alacritty
+1. [Alacritty config file](https://geekbb.xlog.page/Alacritty)
+2. [Rebuilding My iTerm setup in Alacritty](https://www.danielcorin.com/til/alacritty/rebuilding-my-iterm-setup-in-alacritty/)
