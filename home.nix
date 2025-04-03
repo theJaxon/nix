@@ -60,21 +60,21 @@ in
           primary.foreground = "#edecee";
           cursor.cursor = "#00D1FF";
         };
-        keyboard.bindings = [
-          {
-            action = "SpawnNewInstance";
-            key = "N";
-            mods = "Command";
-          }
-          {
-            chars = "\u001BB";
-            key = "Left";
-            mods = "Command";
-          }
-        ];
+      keyboard.bindings = [
+        { key = "N"; mods = "Command"; action = "SpawnNewInstance"; }
+        
+        # opt + right and left jump between words
+        { key = "Right"; mods = "Alt"; chars = "\\u001BF"; }
+        { key = "Left"; mods = "Alt"; chars = "\\u001BB"; }
+        
+        # command + right and left to jump to the end or beginning of line
+        { key = "Left"; mods = "Command"; chars = "\\u0001"; }
+        { key = "Right"; mods = "Command"; chars = "\\u0005"; }
+      ];
         cursor.style.shape = "Beam";
         selection.save_to_clipboard = true;
         terminal.shell.program = "/run/current-system/sw/bin/zellij";
+        general.live_config_reload = true;
       };
     };
 
